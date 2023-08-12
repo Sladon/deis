@@ -27,6 +27,7 @@ class WebFile:
     
     
     def __check_and_create_directories(self):
+        """Verify if paths for the data exists, if not create thems"""
         if not PATHS["results"].exists():
             makedirs(PATHS["results"])
             print("Created directory: %s" % PATHS["results"])

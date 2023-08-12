@@ -8,6 +8,8 @@ RESULTS_DIR = DATA_DIR.joinpath(r'results')
 DICTIONARIES_DIR = RESULTS_DIR.joinpath(r'dictionaries')
 CSV_DIR = DATA_DIR.joinpath(r'CSVs')
 
+
+# User paths where the files will be saved
 PATHS = {
     'results': RESULTS_DIR,
     'dictionaries': DICTIONARIES_DIR,
