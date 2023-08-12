@@ -1,6 +1,12 @@
 import requests
 
 class WebData:
+    """
+    Client object that connects to Deis Chile website and extracts data.
+
+    Args:
+            url (str): URL of Deis website
+    """
 
     def __init__(self, url: str) -> None:
         self.URL = url
