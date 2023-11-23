@@ -4,12 +4,13 @@ import requests
 from os import listdir, makedirs, path
 from global_params.paths import PATHS
 
-class WebFile:
+class File:
 
-    def __init__(self, name: str, source: str, filetype: str):
+    def __init__(self, name: str, source: str, filetype: str, isLocal:bool = False):
         self.name = name
         self.source = source
         self.filetype = filetype
+        self.isLocal: bool = isLocal
 
     def __check_filename(self, filename: str, dir: str) -> bool:
         """This function checks the existence of a file in the given directory
@@ -52,9 +53,13 @@ class WebFile:
         """Extracts the zip file"""
         self.__check_and_create_directories()
 
-        print("Downloading file from: %s" % self.source)
-        file = self.__download_zip()
-        print("Finished downloading file")
+        if self.isLocal:
+            print(f"Retrieving Zip file from {self.source}")
+            file = ZipFile(self.source)
+        else:
+            print("Downloading file from: %s" % self.source)
+            file = self.__download_zip()
+            print("Finished downloading file")
         
         for i in range(len(file.filelist)):
             filename = file.filelist[i].filename

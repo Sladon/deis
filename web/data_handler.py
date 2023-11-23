@@ -30,6 +30,8 @@ class WebData:
             dict: The json from the url
         """
         request = requests.get(self.URL, headers=self.headers)
+        print(request)
+        print(self.URL, self.headers)
         data = request.json()
         return data
     
