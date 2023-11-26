@@ -56,7 +56,7 @@ class File:
         if self.isLocal:
             print(f"Retrieving Zip file from {self.source}")
             file = ZipFile(self.source)
-        else:
+        else: # This functionality stopped working, source url not working
             print("Downloading file from: %s" % self.source)
             file = self.__download_zip()
             print("Finished downloading file")
